@@ -45,6 +45,7 @@ public:
 };
 
 /*法2：先排序，再寻找
+时间复杂度O(nlogn), 空间复杂度O(1)
 runtime: 50ms
 */
 class Solution {
@@ -93,6 +94,7 @@ public:
 
 /*
 法3：先排序，再找中位数，中位数一定是那个majority element
+时间复杂度O(nlogn), 空间复杂度O(1)
 runtime: 53ms
 */
 class Solution {
