@@ -12,7 +12,8 @@
 * };
 */
 
-/*解法一：直接插入排序
+/*解法一：新建一个链表，直接插入排序
+时间复杂度O(n^2)，空间复杂度O(n)
 OJ判决结果：Accepted
 Runtime:98ms
 */
@@ -130,7 +131,64 @@ public:
 	}
 };
 
-/*解法3：继续改进，将函数改为inline
+/*解法一继续改进，将函数改为inline
  *Runtime:92ms
  *代码省略，基本一致
  */
+
+/*解法二：就地插入排序，不新建
+*时间复杂度O(n^2)，空间复杂度O(n)
+*OJ判决结果：Accepted
+*Runtime: 94 ms
+*/
+class Solution {
+public:
+	ListNode *insertionSortList(ListNode *head) {
+		if (!head)
+		{
+			return head;
+		}
+		ListNode* newHead = (ListNode *)malloc(sizeof(ListNode));
+		newHead->next = head;
+		//newHead->val = 0;
+		ListNode *p1, *p2, *q1, *q2;
+		//p = head;
+		q1 = head;//q1是为了删除q2时起作用
+		q2 = head->next;//从第二个节点开始
+		while (q2)
+		{
+			p1 = newHead;
+			p2 = p1->next;
+			while (p2 != q2)
+			{
+				if (p2->val > q2->val)
+				{
+					ListNode *s = (ListNode *)malloc(sizeof(ListNode));
+					s->val = q2->val;
+					s->next = p1->next;
+					p1->next = s;//将s插入到p1,p2之间结束
+
+
+					q1->next = q2->next;
+					q2->next = NULL;
+					free(q2);
+					break;
+				}
+				else
+				{
+					p1 = p1->next;
+					p2 = p1->next;
+				}
+			}//end while(p2 != q2)
+
+			if (p2 == q2) //即前面已经排好序的当中没有比要插入的还大的，那么呆在原位置，就要将标志指针向后移一个单位
+			{
+				q1 = q1->next;
+			}
+			
+			q2 = q1->next;//必须用这种方法
+		}//end while
+		newHead = newHead->next;
+		return newHead;
+	}
+};
