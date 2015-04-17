@@ -25,7 +25,7 @@ class Solution {
 public:
 	string convert(string s, int nRows) 
 	{
-		if (nRows < 2)//无需转换
+		if (nRows < 2 || s.size() < 2)//无需转换
 		{
 			return s;
 		}
