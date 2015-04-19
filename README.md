@@ -1,1 +1,1 @@
-This is my first time to use OJ and Git!
+This is my first time to use OJ Github!
