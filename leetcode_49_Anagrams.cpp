@@ -28,6 +28,7 @@ Note: All inputs will be in lower-case.
 Status: Accepted
 Runtime: 50 ms
  */
+//应好好理解
 class Solution
 {
 public:
