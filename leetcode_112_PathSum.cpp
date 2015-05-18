@@ -78,6 +78,9 @@ private:
 由于题目没有说节点的数据一定是正整数，必须要走到叶子节点才能判断，因此中途没法剪枝，
 只能进行朴素深搜。
 
+Status: Accepted
+Runtime: 14 ms
+
  */
 
 class Solution
