@@ -9,6 +9,18 @@ A solution using O(n) space is pretty straight forward. Could you devise a const
 */
 
 /*
+先中序遍历，将节点按中序存储（除去两个异常值外，其余关键字的值从小到大），然后寻找
+两个逆序的位置，从而找出异常的两个节点，并交换他们关键字的值。
+这里有一个技巧：第一个逆序的位置从前往后找，第二个逆序的位置从后往前找。这样，即使
+是形如“
+
+3
+ \
+   2
+    \
+     1
+这样的三个（实际上是两个）都逆序的，也可以解决。
+ */
 Status: Accepted
 Runtime: 48 ms
 */
